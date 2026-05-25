@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gesture's Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- p5.js and ml5.js v1.0 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <script src="https://unpkg.com/ml5@1/dist/ml5.min.js"></script>
+</head>
+<body>
+    <div id="canvas-container">
+        <!-- Canvas gets injected here by p5.js -->
+        <div id="loading" class="loading-overlay">
+            <div class="spinner"></div>
+        </div>
+
+        <!-- About Button (always on, top right) -->
+        <button id="btn-about" class="about-btn">ABOUT</button>
+
+        <!-- Back to Menu Button (visible during gameplay) -->
+        <button id="btn-back-menu" class="back-btn" style="display: none;">&larr; BACK TO MENU</button>
+
+        <!-- About Modal Overlay -->
+        <div id="about-overlay" class="modal-overlay" style="display: none;">
+            <div class="modal-content">
+                <!-- Corner dots matching finger tracking colors -->
+                <div class="corner-dot top-left"></div>
+                <div class="corner-dot top-right"></div>
+                <div class="corner-dot bottom-left"></div>
+                <div class="corner-dot bottom-right"></div>
+
+                <button id="btn-close-about" class="modal-close-btn">&times;</button>
+                <h2 class="modal-title">THE GESTURE'S FORM</h2>
+                <div class="modal-body">
+                    <p>"The Gesture's Form" explores the relationship between the body, gesture, and writing in the digital context, questioning how typography has become increasingly automated, standardized, and disconnected from the physical act of writing.</p>
+                    <p>The project thus explores the possibility of reintroducing expressiveness, imperfection, and identity into digital writing, transforming reading into a performative act. By making the connection between body and text visible, it proposes a new form of interaction in which writing becomes, once again, a gesture.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Menu & Footer Control Bar (idle state) -->
+        <div id="main-menu" class="menu-container">
+            <button id="btn-continuous" class="menu-btn">CONTINUOUS EXPLORATION</button>
+            
+            <!-- Custom Word Input Card (idle state footer) -->
+            <div id="custom-word-card" class="custom-card">
+                <h3>TYPE YOUR WORD:</h3>
+                <input type="text" id="custom-word-input" value="The Gesture's Form" placeholder="Type here..." maxlength="25">
+            </div>
+
+            <button id="btn-missing-words" class="menu-btn">MISSING WORDS</button>
+        </div>
+
+        <!-- Victory Overlay (victory state) -->
+        <div id="victory-overlay" class="victory-card" style="display: none;">
+            <h2 class="victory-title">CONGRATULATIONS!</h2>
+            <p class="victory-subtitle">You revealed all the missing words!</p>
+            <div class="victory-words">
+                <span class="victory-word">Handwriting</span>
+                <span class="victory-word">gestural</span>
+                <span class="victory-word">letters’</span>
+                <span class="victory-word">human</span>
+            </div>
+            <button id="btn-victory-back" class="menu-btn victory-btn">BACK TO MENU</button>
+        </div>
+    </div>
+
+    <script src="sketch.js"></script>
+</body>
+</html>
