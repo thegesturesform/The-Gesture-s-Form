@@ -567,3 +567,4 @@ function updateInstructions() {
   } else if (gameState === 'victory') {
     instructionDiv.html("");
   }
+}
