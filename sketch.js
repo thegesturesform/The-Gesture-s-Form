@@ -565,6 +565,6 @@ function updateInstructions() {
     const word = inputEl ? inputEl.value : "The Gesture's Form";
     instructionDiv.html("<span style='color: #E3D0FC; font-size: 1.3rem; font-weight: bold;'>" + word + "</span>! Generating next targets...");
   } else if (gameState === 'victory') {
-    instructionDiv.html("Congratulations! You revealed all the missing words!");
+    instructionDiv.html("");
   }
 }
